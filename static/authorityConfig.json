@@ -1605,6 +1605,15 @@
     "component": "lookup"
   },
   {
+    "label": "Wikidata (QA)",
+    "uri": "urn:wikidata",
+    "authority": "wikidata",
+    "subauthority": "item",
+    "language": "en",
+    "component": "lookup",
+    "nonldLookup": true
+  },
+  {
     "label": "MARC relator terms",
     "uri": "https://id.loc.gov/vocabulary/relators",
     "component": "list"
