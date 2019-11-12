@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { addResource } from 'actionCreators/resources'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { removeResource } from 'actions/index'
 import { resourceEditErrorKey, getResourceTemplate } from 'selectors/resourceSelectors'
 
@@ -14,6 +16,8 @@ const PropertyActionButtons = (props) => {
     props.addResource(props.reduxPath, resourceEditErrorKey)
   }
 
+  const trashIcon = faTrashAlt
+
   const handleRemoveClick = (event) => {
     event.preventDefault()
     props.removeResource(props.reduxPath.slice(0, props.reduxPath.length - 1))
@@ -21,12 +25,12 @@ const PropertyActionButtons = (props) => {
 
   return (<div className="btn-group" role="group" aria-label="...">
     { props.addButtonHidden
-      || <button className="btn btn-outline-secondary btn-sm btn-add-another"
-                 onClick={ handleAddClick }>Add another {props.resourceLabel}</button>
+      || <button className="btn btn-sm btn-add-property btn-add-another"
+                 onClick={ handleAddClick }>+ Add another</button>
     }
     { props.removeButtonHidden
-      || <button className="btn btn-outline-secondary btn-sm btn-remove-another"
-                 onClick={ handleRemoveClick }>Remove {props.resourceLabel}</button>
+      || <button className="btn btn-sm btn-remove-another"
+                 onClick={ handleRemoveClick }><FontAwesomeIcon icon={trashIcon} /></button>
     }
 
   </div>)
