@@ -44,13 +44,9 @@ const QASearchResults = (props) => {
     // Discogs returns a context that is not an array
     const types = []
     if (result.context) {
-      if (Array.isArray(result.context)) {
-        const classContext = result.context.find(context => context.property === 'Type')
-        if (classContext) {
-          types.push(...classContext.values)
-        }
-      } else if (Array.isArray(result.context.Type)) {
-        types.push(...result.context.Type)
+      const classContext = result.context.find(context => context.property === 'Type')
+      if (classContext) {
+        types.push(...classContext.values)
       }
     }
 
