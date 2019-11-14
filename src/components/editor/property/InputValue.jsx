@@ -17,12 +17,19 @@ const InputValue = (props) => {
     props.removeItem(props.reduxPath)
   }
 
+  const removeInputItem = (e) => {
+    console.log(`in removeInputItem`)
+    console.warn(props.reduxPath)
+    props.removeItem(props.reduxPath)
+    e.preventDefault()
+  }
+
   return (<div id="userInput" style={{ marginTop: '.25em' }}>
     <div
       className="rbt-token rbt-token-removeable">
       {label}
       <button
-        onClick={() => props.removeItem(props.reduxPath)}
+        onClick={removeInputItem}
         className="close rbt-close rbt-token-remove-button">
         <span aria-hidden="true">×</span>
       </button>

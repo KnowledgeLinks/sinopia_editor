@@ -13,8 +13,12 @@ const LanguageButton = (props) => {
 
   const handleClick = (event) => {
     event.preventDefault()
+    console.log(`In handleClick`)
+    console.warn(props.reduxPath)
     dispatch(showModal('LanguageModal'))
   }
+
+
 
   return (
     <React.Fragment>

@@ -19,10 +19,13 @@ const ModalWrapper = (props) => {
   const el = useRef(document.createElement('div'))
 
   useEffect(() => {
+    console.log(`in first useEffect`)
     modalRoot.appendChild(el.current)
+    return (() => {
+      console.log(`Trying to force remove Child`)
+      return modalRoot.removeChild(el.current)
+    })
   })
-
-  useEffect(() => { () => modalRoot.removeChild(el.current) })
 
   return createPortal(props.modal, el.current)
 }

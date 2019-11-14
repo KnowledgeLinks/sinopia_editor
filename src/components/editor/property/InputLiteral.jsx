@@ -15,7 +15,7 @@ import { defaultLanguageId } from 'Utilities'
 import { booleanPropertyFromTemplate } from 'utilities/propertyTemplates'
 import _ from 'lodash'
 
-const InputLiteral = (props) => {
+const BasicInputLiteral = (props) => {
   const inputLiteralRef = useRef(Math.floor(100 * Math.random()))
   const [content, setContent] = useState('')
   const [lang, setLang] = useState(defaultLanguageId)
@@ -93,7 +93,7 @@ const InputLiteral = (props) => {
   )
 }
 
-InputLiteral.propTypes = {
+BasicInputLiteral.propTypes = {
   propertyTemplate: SinopiaPropTypes.propertyTemplate,
   errors: PropTypes.array,
   items: PropTypes.object,
@@ -122,4 +122,5 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({ itemsSelected }, dispatch)
 
+const InputLiteral = React.memo(BasicInputLiteral)
 export default connect(mapStateToProps, mapDispatchToProps)(InputLiteral)
